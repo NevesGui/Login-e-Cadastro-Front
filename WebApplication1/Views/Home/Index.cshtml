@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form class="form-horizontal">
+<form class="form-horizontal cadastrar">
 <fieldset>
 <div class="panel panel-primary">
     <div class="panel-heading">Cadastro</div>
@@ -106,7 +106,7 @@
   </div>
   
 <div class="form-check" style="margin-left:500px;">
-  <input class="form-check-input" type="checkbox" value="" id="lgpd">
+  <input class="form-check-input" type="checkbox" id="lgpd">
   <label class="form-check-label" for="lgpd">
     Aceito compartilhar meus dados de acordo com a norma LGPD. 
   </label>
@@ -133,16 +133,16 @@
 </html>
 
 <script> 
-    document.querySelector("#Cadastrar").addEventListener("submit", function(event){
+    document.querySelector(".cadastrar").addEventListener("submit", function(event){
         console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA EU TO MALUCO")
         event.preventDefault()
-        const nome=document.getElementById("nome").value
+        const nome=document.getElementById("Nome").value
         const dataNasc=document.getElementById("dtnasc").value
         const email=document.getElementById("email").value
         const senha=document.getElementById("pass").value
         const genero=document.getElementById("genero").value
         const role=document.getElementById("Role").value
-        const lgpd=document.getElementById("lgpd").value
+        const lgpd=document.getElementById("lgpd").checked
       //  console.log("Está dentro do Submit")
         const data={senha,email,nome,dataNasc,genero,role,lgpd}
         fetch("http://victorgontijo-001-site1.htempurl.com/api/Usuario",{
@@ -150,7 +150,7 @@
            // mode: "no-cors",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMCIsImVtYWlsIjoiUHJvZmVzc29yIiwicm9sZSI6IlByb2Zlc3NvciIsInVuaXF1ZV9uYW1lIjoiUHJvZmVzc29yIiwiR2VuZXJvIjoiT3V0cm9zIiwiTEdQRCI6IlRydWUiLCJOYXNjaW1lbnRvIjoiNS8xMi8yMDIyIDM6NTU6MDIgQU0iLCJuYmYiOjE2NTM0NTA2NjEsImV4cCI6MTY1MzQ3OTQ2MSwiaWF0IjoxNjUzNDUwNjYxfQ.1kU5fitg5MahXNnKyi5-eiWbZrdYt1S8JVSwPNTh4k4"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMCIsImVtYWlsIjoiUHJvZmVzc29yIiwicm9sZSI6IlByb2Zlc3NvciIsInVuaXF1ZV9uYW1lIjoiUHJvZmVzc29yIiwiR2VuZXJvIjoiT3V0cm9zIiwiTEdQRCI6IlRydWUiLCJOYXNjaW1lbnRvIjoiNS8xMi8yMDIyIDM6NTU6MDIgQU0iLCJuYmYiOjE2NTM1MDMxMjMsImV4cCI6MTY1MzUzMTkyMywiaWF0IjoxNjUzNTAzMTIzfQ.Ong1IAMOleRSmpwf8wXR0vfmqAZeGBN-jdBvJYw5298"
                 //"bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMCIsImVtYWlsIjoiUHJvZmVzc29yIiwicm9sZSI6IlByb2Zlc3NvciIsInVuaXF1ZV9uYW1lIjoiUHJvZmVzc29yIiwiR2VuZXJvIjoiT3V0cm9zIiwiTEdQRCI6IlRydWUiLCJOYXNjaW1lbnRvIjoiNS8xMi8yMDIyIDM6NTU6MDIgQU0iLCJuYmYiOjE2NTM0NDI5ODMsImV4cCI6MTY1MzQ3MTc4MywiaWF0IjoxNjUzNDQyOTgzfQ.4Mxfqv2632zjCKkkdbp1-2NNmHefGHG631G2zCel3GU"
             },
             body:JSON.stringify(data),
@@ -158,7 +158,8 @@
             
 
         }).then(function(response){
-            console.log(response.json())                      
+            console.log(response.json())
+            alert("Usuário Cadastrado!")
         }).catch(function(err){
             console.log(err)
         })

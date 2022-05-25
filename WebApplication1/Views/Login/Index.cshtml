@@ -67,7 +67,7 @@
         }).then(function(response){
             console.log(response.json())
             if(response.status==200){
-                location.href="/"
+                location.href="/?${data.bearer}"
             }
             else{
                 alert("Usuário ou senha incorretos!")
