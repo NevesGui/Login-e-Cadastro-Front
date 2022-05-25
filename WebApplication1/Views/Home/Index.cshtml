@@ -52,10 +52,15 @@
 <!-- Multiple Radios (inline) -->
 
 <div class="form-group">
-  <label class="col-md-2 control-label" for="genero">Genêro <h11>*</h11></label>  
+  <label class="col-md-2 control-label" for="selectbasic">Gênero <h11>*</h11></label>
   <div class="col-md-2">
-  <input id="genero" name="genero" placeholder="M,F ou outro" class="form-control input-md" required="" type="text">
-  </div>
+    <select required id="genero" name="genero" class="form-select">
+        <option value=""></option>
+      <option value="Feminino">Feminino</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Outro">Outro</option>
+    </select>
+    </div>
 </div>
 
 
